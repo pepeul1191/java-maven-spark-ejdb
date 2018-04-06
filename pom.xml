@@ -20,6 +20,33 @@
       <artifactId>ejdb</artifactId>
       <version>1.0.4</version>
     </dependency>
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>bson</artifactId>
+      <version>2.3</version>
+    </dependency>
+    <!-- Spark Framework-->
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-template-velocity</artifactId>
+      <version>2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.13</version>
+    </dependency>
+    <!-- JSON -->
+    <dependency>
+		  <groupId>org.json</groupId>
+		  <artifactId>json</artifactId>
+		  <version>20170516</version>
+		</dependency>
   </dependencies>
     <build>
     <finalName>EJDBSpark</finalName>
