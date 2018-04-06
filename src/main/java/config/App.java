@@ -1,10 +1,17 @@
 package config;
 
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import static spark.Spark.*;
+import spark.*;
+import spark.template.velocity.*;
+import java.io.UnsupportedEncodingException;
+import java.util.Map;
+import handlers.HomeHandler;
 
 public class App {
   public static void main(String[] args) {
-    //exception(Exception.class, (e, req, res) -> e.printStackTrace());
+    exception(Exception.class, (e, req, res) -> e.printStackTrace());
 		staticFiles.location("/public");
 		staticFiles.header("Access-Control-Allow-Origin", "*");
 		staticFiles.header("Access-Control-Request-Method",  "*");
@@ -38,7 +45,25 @@ public class App {
 		get("/test/conexion", (request, response) -> {
 			return "Conxión OK";
 		});	
-		//rutas a handlers
+    //rutas a handlers
+    get("/", HomeHandler.index);
   }
-  
+  public static String renderTemplate(String template, Map model) {
+		//usar velocity como motor de templates
+    Config constants = ConfigFactory.parseResources("config/application.conf");
+		model.put("constantes", constants);
+		VelocityTemplateEngine vt = new VelocityTemplateEngine();
+		ModelAndView mv = new ModelAndView(model, template);		
+		String rptaLatin = vt.render(mv);
+		try {
+			byte[] isoBytes = rptaLatin.getBytes("ISO-8859-1");
+			return new String(isoBytes, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "Error en codificación de vista Apache Velocity";
+		}
+		//HelperView hv = new HelperView();
+		//rpta = hv.correcionUTF8(rpta);	
+  }
 }

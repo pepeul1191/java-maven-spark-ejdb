@@ -47,6 +47,12 @@
 		  <artifactId>json</artifactId>
 		  <version>20170516</version>
 		</dependency>
+    <!--Libería para leer el archivos *.conf-->
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>1.3.2</version>
+    </dependency>
   </dependencies>
     <build>
     <finalName>EJDBSpark</finalName>
