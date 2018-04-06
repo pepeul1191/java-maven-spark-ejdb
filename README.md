@@ -50,7 +50,17 @@ Instalar ejdb:
     $ make
     $ sudo make install
 
-Buscar el JAR en 'ejdb-java/target' y agregar al proyecto.
+Agregar manualmente el jar a repositorio local de maven:
+
+    mvn install:install-file -Dfile='src/main/resources/jars/jejdb-1.0.4.jar' -DgroupId=org.ejdb -DartifactId=ejdb -Dversion=1.0.4 -Dpackaging=jar
+
+```
+<dependency>
+  <groupId>org.ejdb</groupId>
+  <artifactId>ejdb</artifactId>
+  <version>1.0.4</version>
+</dependency>
+```
 
 --- 
 
@@ -59,5 +69,4 @@ Fuentes
 + https://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/
 + https://stackoverflow.com/questions/9846046/run-main-class-of-maven-project
 + https://stackoverflow.com/questions/32923586/maven-lambda-expressions-are-not-supported-in-source-1-5
-+ https://stackoverflow.com/questions/11040362/update-all-columns-in-ormlite-database-table-in-android
-+ http://ormlite.com/javadoc/ormlite-core/doc-files/ormlite_5.html#Transactions
++ https://www.mkyong.com/maven/how-to-include-library-manully-into-maven-local-repository/
