@@ -14,6 +14,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- Base de datos EJDB a JAR local-->
+    <dependency>
+      <groupId>org.ejdb</groupId>
+      <artifactId>ejdb</artifactId>
+      <version>1.0.4</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/jars/jejdb-1.0.4.jar</systemPath>
+    </dependency>
   </dependencies>
     <build>
     <finalName>EJDBSpark</finalName>
