@@ -46,8 +46,10 @@ public class App {
 			return "Conxión OK";
 		});	
     //rutas a handlers
-    get("/", HomeHandler.index);
-  }
+		get("/", HomeHandler.index);
+		get("/listar", HomeHandler.listar);
+	}
+	
   public static String renderTemplate(String template, Map model) {
 		//usar velocity como motor de templates
     Config constants = ConfigFactory.parseResources("config/application.conf");

@@ -11,12 +11,16 @@ public class Database {
   }
   
   public void open(){
-    //db.open("db/zoo", EJDB.JBOREADER | EJDB.JBOWRITER | EJDB.JBOCREAT | EJDB.JBOTRUNC);
-    this.db.open("db/zoo", EJDB.JBOREADER | EJDB.JBOWRITER);
+    db.open("db/zoo", EJDB.JBOREADER | EJDB.JBOWRITER | EJDB.JBOCREAT | EJDB.JBOTRUNC);
+    //this.db.open("db/zoo", EJDB.JBOREADER | EJDB.JBOWRITER);
   }
 
   public void close(){
     this.db.close();
+  }
+
+  public EJDB getDB(){
+    return this.db;
   }
 
   public String generateId(){
